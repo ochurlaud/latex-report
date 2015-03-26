@@ -1,0 +1,81 @@
+% !TeX spellcheck = en_US
+%=======================================================%
+% Document												%
+% 														%
+% Auteur : Olivier CHURLAUD 							%
+% Date :  												%
+%=======================================================%
+
+\documentclass[12pt,a4paper]{book}
+
+\include{packages}
+\include{definitions}
+
+\include{style}
+\include{env_matlab}
+
+\newif\ifconfidential
+
+%% School version
+%\confidentialfalse
+%% Confidential version 
+\confidentialtrue
+
+\begin{document}
+
+\mytitlepage
+
+\frontmatter
+
+\myresumepage
+\myremerciementspage
+
+% Table des matières
+\newpage~\newpage
+\setlength{\parskip}{0pt}
+\tableofcontents
+\listoffigures
+\setlength{\parskip}{0.3cm}
+
+\mainmatter
+\cleardoublepage
+
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+\part{part1}
+\chapter{Chap1}
+
+\section{sec1}
+
+\conclusionpage
+
+\cleardoublepage
+\bibliographystyle{IEEEtran}
+\bibliography{biblio}
+\addcontentsline{toc}{part}{Bibliography}
+\appendix
+
+\ifconfidential
+Secrete appendix
+\else
+nothing
+\fi
+
+\newpage
+\chapter{pdf}
+\vfill
+here is a pdf inclusion
+\vfill
+\pagebreak
+\makeatletter
+\includepdf[pages=-,picturecommand={% 
+	\setlength{\@tempdimb}{.9\paperwidth}% 
+	\setlength{\@tempdimc}{1.5cm}% 
+	\setlength{\unitlength}{1pt}% 
+	\put(\strip@pt\@tempdimb,\strip@pt\@tempdimc){% 
+		\makebox (0,0){\thepage}}% 
+}]{./Evaluation.pdf}
+\makeatother
+
+\end{document}
