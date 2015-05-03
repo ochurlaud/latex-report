@@ -3,5 +3,5 @@
 My style for reports.
 
 * Multiple parts
-* Pagination changes between `/frontmatter`, `mainmatter` and `appendix`
+* Pagination changes between `frontmatter`, `mainmatter` and `appendix`
 * ...
